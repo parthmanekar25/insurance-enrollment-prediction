@@ -255,37 +255,7 @@ After training, you'll see metrics like:
 
 See `report.md` for detailed results.
 
-## 🔐 API Security
-
-For production deployment:
-
-1. **Remove CORS wildcard**
-```python
-allow_origins=["https://yourdomain.com"]  # Specify allowed origins
-```
-
-2. **Add authentication**
-```python
-from fastapi.security import HTTPBearer
-security = HTTPBearer()
-
-@app.post("/predict")
-async def predict_enrollment(employee: EmployeeData, credentials: HTTPAuthCredentials = Depends(security)):
-    # Validate credentials
-    ...
-```
-
-3. **Add rate limiting**
-```bash
-pip install slowapi
-```
-
-4. **Use HTTPS in production**
-```bash
-uvicorn api.main:app --ssl-keyfile=key.pem --ssl-certfile=cert.pem
-```
-
-## 📚 Dependencies
+##  Dependencies
 
 | Package | Version | Purpose |
 |---------|---------|---------|
