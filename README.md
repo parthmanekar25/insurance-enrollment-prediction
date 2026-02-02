@@ -300,67 +300,7 @@ uvicorn api.main:app --ssl-keyfile=key.pem --ssl-certfile=cert.pem
 | matplotlib | 3.7.2 | Visualizations |
 | seaborn | 0.12.2 | Statistical plots |
 
-## 🚢 Deployment
-
-### Docker
-
-Create `Dockerfile`:
-```dockerfile
-FROM python:3.9-slim
-
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-
-COPY . .
-
-CMD ["python", "-m", "uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]
-```
-
-Build and run:
-```bash
-docker build -t insurance-ml .
-docker run -p 8000:8000 insurance-ml
-```
-
-### Cloud Deployment
-
-**AWS EC2**:
-```bash
-# SSH into instance
-ssh -i key.pem ubuntu@instance-ip
-
-# Clone repo, install, and run
-git clone <repo>
-cd insurance-enrollment-ml
-pip install -r requirements.txt
-python src/train.py
-python -m uvicorn api.main:app --host 0.0.0.0 --port 8000
-```
-
-**Heroku**:
-```bash
-heroku create insurance-enrollment-ml
-git push heroku main
-```
-
-## 📝 License
-
-MIT License - See LICENSE file for details
-
-## 👥 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/new-feature`)
-3. Commit changes (`git commit -am 'Add new feature'`)
-4. Push to branch (`git push origin feature/new-feature`)
-5. Create a Pull Request
-
-## 📧 Contact
-
-For questions or support, please open an issue on GitHub.
-
 ---
 
 **Last Updated**: February 2026
-**Maintainer**: Your Name
+**Repository**: https://github.com/parthmanekar25/insurance-enrollment-prediction
